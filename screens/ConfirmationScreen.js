@@ -74,7 +74,7 @@ const ConfirmationScreen = () => {
       const options = {
         description: "Adding To Wallet",
         currency: "INR",
-        name: "Amazon",
+        name: "Yash Electronics",
         key: "rzp_test_E3GWYimxN7YMk8",
         amount: total * 100,
         prefill: {
