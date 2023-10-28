@@ -14,6 +14,7 @@ import { UserType } from "../UserContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ProfileScreen = () => {
+  const IpAdressofyourpc = "192.168.169.241"
   const { userId, setUserId } = useContext(UserType);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -53,7 +54,7 @@ const ProfileScreen = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/profile/${userId}`
+          `http://${IpAdressofyourpc}:8000/profile/${userId}`
         );
         const { user } = response.data;
         setUser(user);
@@ -76,7 +77,7 @@ const ProfileScreen = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/orders/${userId}`
+          `http://${IpAdressofyourpc}:8000/orders/${userId}`
         );
         const orders = response.data.orders;
         setOrders(orders);

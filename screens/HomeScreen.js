@@ -27,6 +27,8 @@ import { UserType } from "../UserContext";
 import jwt_decode from "jwt-decode";
 
 const HomeScreen = () => {
+
+  const IpAdressofyourpc = "192.168.169.241"
   const list = [
     {
       id: "0",
@@ -236,7 +238,7 @@ const HomeScreen = () => {
   const fetchAddresses = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/addresses/${userId}`
+        `http://${IpAdressofyourpc}:8000/addresses/${userId}`
       );
       const { addresses } = response.data;
 

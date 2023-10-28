@@ -10,6 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 import RazorpayCheckout from "react-native-razorpay";
 
 const ConfirmationScreen = () => {
+  const IpAdressofyourpc = "192.168.169.241"
   const steps = [
     { title: "Address", content: "Address Form" },
     { title: "Delivery", content: "Delivery Options" },
@@ -30,7 +31,7 @@ const ConfirmationScreen = () => {
   const fetchAddresses = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/addresses/${userId}`
+        `http://${IpAdressofyourpc}:8000/addresses/${userId}`
       );
       const { addresses } = response.data;
 
@@ -54,7 +55,7 @@ const ConfirmationScreen = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8000/orders",
+        `http://${IpAdressofyourpc}:8000/orders`,
         orderData
       );
       if (response.status === 200) {
@@ -97,7 +98,7 @@ const ConfirmationScreen = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8000/orders",
+        `http://${IpAdressofyourpc}:8000/orders`,
         orderData
       );
       if (response.status === 200) {
